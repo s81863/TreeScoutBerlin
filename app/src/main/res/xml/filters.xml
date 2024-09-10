@@ -1,0 +1,87 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Filteroptionen">
+
+        <!-- Gattung Filter -->
+        <SwitchPreferenceCompat
+            android:key="gattung_filter_enabled"
+            android:title="Gattungsfilter aktivieren"
+            android:defaultValue="false" />
+
+        <MultiSelectListPreference
+            android:key="gattung"
+            android:title="Gattung"
+            android:summary="Wählen Sie eine oder mehrere Gattungen"
+            android:entries="@array/gattung_options"
+            android:entryValues="@array/gattung_values"
+            android:defaultValue="@array/gattung_default"
+            android:dependency="gattung_filter_enabled" />
+
+        <!-- Alter Filter -->
+        <SwitchPreferenceCompat
+            android:key="alter_filter_enabled"
+            android:title="Altersfilter aktivieren"
+            android:defaultValue="false" />
+
+        <androidx.preference.SeekBarPreference
+            android:key="alter"
+            android:title="Standalter"
+            android:summary="Wählen sie das minimale Alter der zu ladenden Bäume"
+            android:min="0"
+            android:max="200"
+            android:defaultValue="50"
+            app:showSeekBarValue="true"
+            android:dependency="alter_filter_enabled" />
+
+        <!-- Stammumfang Filter -->
+        <SwitchPreferenceCompat
+            android:key="stammumfang_filter_enabled"
+            android:title="Stammumfangsfilter aktivieren"
+            android:defaultValue="false" />
+
+        <androidx.preference.SeekBarPreference
+            android:key="stammumfg"
+            android:title="Stammumfang"
+            android:summary="Wählen Sie den minimalen Stammumfang der zu ladenden Bäume in cm"
+            android:min="0"
+            android:max="1000"
+            android:defaultValue="300"
+            app:showSeekBarValue="true"
+            android:dependency="stammumfang_filter_enabled" />
+
+        <!-- Baumhoehe Filter -->
+        <SwitchPreferenceCompat
+            android:key="baumhoehe_filter_enabled"
+            android:title="Baumhöhenfilter aktivieren"
+            android:defaultValue="false" />
+
+        <androidx.preference.SeekBarPreference
+            android:key="baumhoehe"
+            android:title="Baumhöhe"
+            android:summary="Wählen Sie die Mindestbaumhöhe in Metern"
+            android:min="0"
+            android:max="50"
+            android:defaultValue="20"
+            app:showSeekBarValue="true"
+            android:dependency="baumhoehe_filter_enabled" />
+
+        <!-- Kronendurchmesser Filter -->
+        <SwitchPreferenceCompat
+            android:key="kronendurchmesser_filter_enabled"
+            android:title="Kronendurchmesserfilter aktivieren"
+            android:defaultValue="false" />
+
+        <androidx.preference.SeekBarPreference
+            android:key="kronedurch"
+            android:title="Kronendurchmesser"
+            android:summary="Wählen Sie den Mindestkronendurchmesser in Metern"
+            android:min="0"
+            android:max="50"
+            android:defaultValue="10"
+            app:showSeekBarValue="true"
+            android:dependency="kronendurchmesser_filter_enabled" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
